@@ -1,6 +1,7 @@
 'use strict';
+
 var
-  gameport        = process.env.PORT || 5151,
+  gameport        = process.env.PORT || 9000,
   io              = require('socket.io'),
   express         = require('express'),
   UUID            = require('node-uuid'),
@@ -9,12 +10,8 @@ var
   app             = express(),
   server          = http.createServer(app);
 
-/** Express server set up.
-*
-* The express server handles passing our content to the browser,
-* As well as routing users where they need to go. This example is bare bones
-* and will serve any file the user requests from the root of your web server (where you launch the script from)
-* so keep this in mind - this is not a production script but a development teaching tool.
+/**
+ * Express server config and setup.
 */
 
 //Tell the server to listen for incoming connections
@@ -31,9 +28,8 @@ app.get( '/', function( req, res ){
 
 /**
  * This handler will listen for requests on /*, any file from the root of our server.
- * See expressjs documentation for more info on routing.
  */
-app.get( '/*' , function( req, res, next )
+app.get( '/*' , function( req, res )
 {
   //This is the current file they have requested
   var file = req.params[0];
