@@ -1,4 +1,7 @@
-pong
-====
+Install all dependencies. You can use developers official page to download and install it.
 
-This is the classic pong game
+## License
+
+MIT Licensed. 
+See LICENSE if required.
+
